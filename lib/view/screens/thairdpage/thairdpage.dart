@@ -57,6 +57,7 @@ class _ThairdPageState extends State<ThairdPage> {
     return Scaffold(
       backgroundColor: const Color(0xffEFF9FF),
       appBar: AppBar(
+        foregroundColor: Color(0xff3f6080),
         backgroundColor: const Color(0xffEFF9FF),
         centerTitle: true,
         title: Text(
@@ -141,11 +142,11 @@ class _ThairdPageState extends State<ThairdPage> {
                       height: h * 0.06,
                       width: w * 0.15,
                       decoration: BoxDecoration(
-                        color: Color(0xff3f6080),
+                        color: const Color(0xff3f6080),
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xffcadbeb).withOpacity(.9),
+                            color: const Color(0xffcadbeb).withOpacity(.9),
                             spreadRadius: 4,
                             blurStyle: BlurStyle.outer,
                           ),
@@ -157,7 +158,7 @@ class _ThairdPageState extends State<ThairdPage> {
                           color: Colors.white,
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          Navigator.pushNamed(context, Routes.homePage);
                         },
                       ),
                     ),
@@ -165,9 +166,9 @@ class _ThairdPageState extends State<ThairdPage> {
                       height: h * 0.06,
                       width: w * 0.15,
                       decoration: BoxDecoration(
-                        color: Color(0xff3f6080),
+                        color: const Color(0xff3f6080),
                         borderRadius: BorderRadius.circular(15),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: Color(0xffcadbeb),
                             spreadRadius: 3.5,
@@ -205,7 +206,7 @@ class _ThairdPageState extends State<ThairdPage> {
                           color: Colors.white,
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, Routes.homePage);
+                          Navigator.pop(context);
                         },
                       ),
                     ),
@@ -213,18 +214,18 @@ class _ThairdPageState extends State<ThairdPage> {
                       height: h * 0.06,
                       width: w * 0.15,
                       decoration: BoxDecoration(
-                        color: Color(0xff3f6080),
+                        color: const Color(0xff3f6080),
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
-                            color: Color(0xffcadbeb).withOpacity(.9),
+                            color: const Color(0xffcadbeb).withOpacity(.9),
                             spreadRadius: 3.5,
                             blurStyle: BlurStyle.outer,
                           ),
                         ],
                       ),
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.watch_later_outlined,
                           color: Colors.white,
                         ),
