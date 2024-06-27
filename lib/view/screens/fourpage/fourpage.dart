@@ -17,7 +17,6 @@ class _FourPageState extends State<FourPage> {
   int ss = 0;
 
   bool isStop = true;
-  List timerColck = [];
 
   void clockTimer() async {
     isStop = true;
@@ -44,6 +43,8 @@ class _FourPageState extends State<FourPage> {
     }
   }
 
+  List timerColck = [];
+
   @override
   Widget build(BuildContext context) {
     double h = MediaQuery.sizeOf(context).height;
@@ -63,258 +64,308 @@ class _FourPageState extends State<FourPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Stack(
-          alignment: Alignment.center,
+        child: Column(
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    /*  Container(
-                      height: h * 0.6,
-                      width: w,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xffecf6ff),
-                            Color(0xffcadbeb),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      /*  Container(
+                        height: h * 0.6,
+                        width: w,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xffecf6ff),
+                              Color(0xffcadbeb),
+                            ],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xff3f6080).withOpacity(.7),
+                              blurRadius: 32,
+                              offset: Offset(40, 20),
+                            ),
+                            BoxShadow(
+                              color: Color(0xffffffff).withOpacity(.8),
+                              blurRadius: 32,
+                              offset: Offset(-20, -10),
+                            ),
                           ],
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0xff3f6080).withOpacity(.7),
-                            blurRadius: 32,
-                            offset: Offset(40, 20),
+                      ),*/
+                      Container(
+                        height: h * 0.06,
+                        width: w * 0.15,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xffecf6ff),
+                              Color(0xffcadbeb),
+                            ],
                           ),
-                          BoxShadow(
-                            color: Color(0xffffffff).withOpacity(.8),
-                            blurRadius: 32,
-                            offset: Offset(-20, -10),
-                          ),
-                        ],
-                      ),
-                    ),*/
-                    Container(
-                      height: h * 0.06,
-                      width: w * 0.15,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xffecf6ff),
-                            Color(0xffcadbeb),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xff3f6080).withOpacity(.7),
+                              blurRadius: 32,
+                              offset: const Offset(25, 15),
+                            ),
+                            BoxShadow(
+                              color: const Color(0xffffffff).withOpacity(.8),
+                              blurRadius: 32,
+                              offset: const Offset(-15, -10),
+                            ),
                           ],
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xff3f6080).withOpacity(.7),
-                            blurRadius: 32,
-                            offset: const Offset(25, 15),
+                        child: Center(
+                          child: Text(
+                            "${(hh).toString().padLeft(2, "0")} ",
+                            style: TextStyle(
+                              fontSize: textScaler.scale(30),
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                          BoxShadow(
-                            color: const Color(0xffffffff).withOpacity(.8),
-                            blurRadius: 32,
-                            offset: const Offset(-15, -10),
-                          ),
-                        ],
+                        ),
                       ),
-                      child: Center(
+                      SizedBox(
+                        width: w * 0.03,
+                      ),
+                      Center(
                         child: Text(
-                          "${(hh).toString().padLeft(2, "0")} ",
+                          ":",
                           style: TextStyle(
                             fontSize: textScaler.scale(30),
-                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: w * 0.03,
-                    ),
-                    Center(
-                      child: Text(
-                        ":",
-                        style: TextStyle(
-                          fontSize: textScaler.scale(30),
-                        ),
+                      SizedBox(
+                        width: w * 0.03,
                       ),
-                    ),
-                    SizedBox(
-                      width: w * 0.03,
-                    ),
-                    Container(
-                      height: h * 0.06,
-                      width: w * 0.15,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xffecf6ff),
-                            Color(0xffcadbeb),
+                      Container(
+                        height: h * 0.06,
+                        width: w * 0.15,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xffecf6ff),
+                              Color(0xffcadbeb),
+                            ],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xff3f6080).withOpacity(.7),
+                              blurRadius: 32,
+                              offset: const Offset(25, 15),
+                            ),
+                            BoxShadow(
+                              color: const Color(0xffffffff).withOpacity(.8),
+                              blurRadius: 32,
+                              offset: const Offset(-15, -10),
+                            ),
                           ],
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xff3f6080).withOpacity(.7),
-                            blurRadius: 32,
-                            offset: const Offset(25, 15),
+                        child: Center(
+                          child: Text(
+                            "${(mm).toString().padLeft(2, "0")} ",
+                            style: TextStyle(
+                              fontSize: textScaler.scale(30),
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                          BoxShadow(
-                            color: const Color(0xffffffff).withOpacity(.8),
-                            blurRadius: 32,
-                            offset: const Offset(-15, -10),
-                          ),
-                        ],
+                        ),
                       ),
-                      child: Center(
+                      SizedBox(
+                        width: w * 0.03,
+                      ),
+                      Center(
                         child: Text(
-                          "${(mm).toString().padLeft(2, "0")} ",
+                          ":",
                           style: TextStyle(
                             fontSize: textScaler.scale(30),
-                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      width: w * 0.03,
-                    ),
-                    Center(
-                      child: Text(
-                        ":",
-                        style: TextStyle(
-                          fontSize: textScaler.scale(30),
-                        ),
+                      SizedBox(
+                        width: w * 0.03,
                       ),
-                    ),
-                    SizedBox(
-                      width: w * 0.03,
-                    ),
-                    Container(
-                      height: h * 0.06,
-                      width: w * 0.15,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xffecf6ff),
-                            Color(0xffcadbeb),
+                      Container(
+                        height: h * 0.06,
+                        width: w * 0.15,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          gradient: const LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xffecf6ff),
+                              Color(0xffcadbeb),
+                            ],
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xff3f6080).withOpacity(.7),
+                              blurRadius: 32,
+                              offset: const Offset(25, 15),
+                            ),
+                            BoxShadow(
+                              color: const Color(0xffffffff).withOpacity(.8),
+                              blurRadius: 32,
+                              offset: const Offset(-15, -10),
+                            ),
                           ],
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xff3f6080).withOpacity(.7),
-                            blurRadius: 32,
-                            offset: const Offset(25, 15),
-                          ),
-                          BoxShadow(
-                            color: const Color(0xffffffff).withOpacity(.8),
-                            blurRadius: 32,
-                            offset: const Offset(-15, -10),
-                          ),
-                        ],
-                      ),
-                      child: Center(
-                        child: Text(
-                          "${(ss).toString().padLeft(2, "0")} ",
-                          style: TextStyle(
-                            fontSize: textScaler.scale(30),
-                            fontWeight: FontWeight.w500,
+                        child: Center(
+                          child: Text(
+                            "${(ss).toString().padLeft(2, "0")} ",
+                            style: TextStyle(
+                              fontSize: textScaler.scale(30),
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: h * 0.05,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xff3f6080),
-                        shadowColor: const Color(0xffEFF9FF),
-                      ),
-                      onPressed: () {
-                        if (!isStop) {
-                          clockTimer();
-                        }
-                        setState(() {});
-                      },
-                      icon: const Icon(
-                        Icons.play_arrow,
-                        color: Colors.black,
-                      ),
-                      label: const Text(
-                        "Start",
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                    ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(
-                          0xff3f6080,
+                    ],
+                  ),
+                  SizedBox(
+                    height: h * 0.05,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xff3f6080),
+                          shadowColor: const Color(0xffEFF9FF),
                         ),
-                        shadowColor: const Color(0xffEFF9FF),
-                      ),
-                      onPressed: () {
-                        isStop = false;
-                        timerColck.add(());
-                        setState(() {});
-                      },
-                      icon: const Icon(
-                        Icons.play_arrow,
-                        color: Colors.black,
-                      ),
-                      label: const Text(
-                        "Stop",
-                        style: TextStyle(
+                        onPressed: () {
+                          if (!isStop) {
+                            clockTimer();
+                          }
+                          setState(() {});
+                        },
+                        icon: const Icon(
+                          Icons.play_arrow,
                           color: Colors.black,
                         ),
+                        label: const Text(
+                          "Start",
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(
+                            0xff3f6080,
+                          ),
+                          shadowColor: const Color(0xffEFF9FF),
+                        ),
+                        onPressed: () {
+                          isStop = false;
+                          timerColck.add({'hour': hh, 'min': mm, 'sec': ss});
+                          setState(() {});
+                        },
+                        icon: const Icon(
+                          Icons.play_arrow,
+                          color: Colors.black,
+                        ),
+                        label: const Text(
+                          "Stop",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: h * 0.02,
+                  ),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xff3f6080),
+                      shadowColor: const Color(0xffEFF9FF),
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: h * 0.02,
-                ),
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff3f6080),
-                    shadowColor: const Color(0xffEFF9FF),
-                  ),
-                  onPressed: () {
-                    isStop = false;
-                    hh = mm = 0;
-                    ss = 0;
-                    timerColck = [];
-                    setState(() {});
-                  },
-                  icon: const Icon(
-                    Icons.restart_alt,
-                    color: Colors.black,
-                  ),
-                  label: const Text(
-                    "Restart",
-                    style: TextStyle(
+                    onPressed: () {
+                      isStop = false;
+                      hh = mm = 0;
+                      ss = 0;
+                      timerColck = [];
+                      setState(() {});
+                    },
+                    icon: const Icon(
+                      Icons.restart_alt,
                       color: Colors.black,
                     ),
+                    label: const Text(
+                      "Restart",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
                   ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ...timerColck.map(
+                      (e) => Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
+                          // crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Hour : ${e['hour']} : ",
+                              style: TextStyle(
+                                  fontSize: textScaler.scale(20),
+                                  color: Colors.black),
+                            ),
+                            Text(
+                              "Min : ${e['min']} : ",
+                              style: TextStyle(
+                                  fontSize: textScaler.scale(20),
+                                  color: Colors.black),
+                            ),
+                            Text(
+                              "Sec : ${e['sec']}",
+                              style: TextStyle(
+                                  fontSize: textScaler.scale(20),
+                                  color: Colors.black),
+                            ),
+                            SizedBox(
+                              width: w * 0.01,
+                            ),
+                            IconButton(
+                                onPressed: () {
+                                  timerColck.remove(e);
+                                  setState(() {});
+                                },
+                                icon: Icon(
+                                  Icons.delete,
+                                  size: 25,
+                                )),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-              ],
+              ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
